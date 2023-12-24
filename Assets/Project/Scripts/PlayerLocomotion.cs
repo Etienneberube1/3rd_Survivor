@@ -10,7 +10,9 @@ public class PlayerLocomotion : MonoBehaviour
 
     private Vector3 _moveDirection;
 
-    [SerializeField] private float _movementSpeed;
+    [SerializeField] private float _walkSpeed;
+    [SerializeField] private float _runSpeed;
+
     [SerializeField] private float _rotationSpeed;
 
 
@@ -38,7 +40,15 @@ public class PlayerLocomotion : MonoBehaviour
         _moveDirection = _moveDirection + _cameraObject.right * _inputManager._horizontalMovement;
         _moveDirection.Normalize();
         _moveDirection.y = 0;
-        _moveDirection *= _movementSpeed * Time.deltaTime;
+
+        if (_inputManager._moveAmount > 0 && !_inputManager._isSprinting)
+        {
+            _moveDirection *= _walkSpeed * Time.deltaTime;
+        }
+        else if (_inputManager._isSprinting)
+        {
+            _moveDirection *= _runSpeed * Time.deltaTime;
+        }
 
         Vector3 movementVelocity = _moveDirection;
         _playerRigidBody.velocity = movementVelocity;

@@ -760,10 +760,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _movementInputs: {x: 0, y: 0}
   _cameraInputs: {x: 0, y: 0}
+  _moveAmount: 0
   _cameraInputX: 0
   _cameraInputY: 0
   _verticalMovement: 0
   _horizontalMovement: 0
+  _isSprinting: 0
 --- !u!136 &309011429
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -838,7 +840,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3119eeaa033db6c45b2439e4d33dceeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _movementSpeed: 300
+  _walkSpeed: 50
+  _runSpeed: 100
   _rotationSpeed: 5
 --- !u!95 &309011433
 Animator:
@@ -3397,7 +3400,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6342770204622008024}
   - component: {fileID: 6342770204622008025}
-  - component: {fileID: 6342770204622008104}
   m_Layer: 0
   m_Name: PlayerFollowCamera
   m_TagString: Untagged
@@ -3405,24 +3407,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &6342770204622008104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6342770204622008103}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfa3814ddc527eb4ea277a313932b7b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _sensitvity: 1
-  CinemachineCameraTarget: {fileID: 0}
-  LockCameraPosition: 0
-  CameraAngleOverride: 0
-  TopClamp: 70
-  BottomClamp: -30
 --- !u!114 &6342770205249609496
 MonoBehaviour:
   m_ObjectHideFlags: 3

@@ -11,13 +11,15 @@ public class InputManager : MonoBehaviour
     [SerializeField] public Vector2 _movementInputs;
     [SerializeField] public Vector2 _cameraInputs;
 
-    private float _moveAmount;
+    public float _moveAmount;
 
     public float _cameraInputX;
     public float _cameraInputY;
 
     public float _verticalMovement;
     public float _horizontalMovement;
+
+    public bool _isSprinting;
 
     private void Awake()
     {
@@ -27,6 +29,7 @@ public class InputManager : MonoBehaviour
     public void HandleAllInputs()
     {
         HandleMovementInput();
+
     }
 
 
@@ -38,21 +41,26 @@ public class InputManager : MonoBehaviour
         _cameraInputY = _cameraInputs.y;
         _cameraInputX = _cameraInputs.x;
 
+        _moveAmount = Mathf.Abs(_horizontalMovement) + Mathf.Abs(_verticalMovement);
+        if (!_isSprinting) {
+            _moveAmount = Mathf.Clamp(_moveAmount, 0, 0.5f);
+        }
+        else {
+            _moveAmount = Mathf.Clamp(_moveAmount, 0.5f, 1f);
+        }
 
-        _moveAmount = Mathf.Clamp01(Mathf.Abs(_horizontalMovement) + Mathf.Abs(_verticalMovement));
         _animatorManager.UpdateAnimatorValue(0, _moveAmount);
     }
 
-
-
-
     private void OnEnable()
     {
-        if (_playerControls == null) { 
+        if (_playerControls == null)
+        {
             _playerControls = new PlayerControls();
 
             _playerControls.PlayerMovement.Movement.performed += i => _movementInputs = i.ReadValue<Vector2>();
             _playerControls.PlayerMovement.Camera.performed += i => _cameraInputs = i.ReadValue<Vector2>();
+            _playerControls.PlayerMovement.Sprint.performed += i => _isSprinting = i.ReadValueAsButton();
         }
 
         _playerControls.Enable();
