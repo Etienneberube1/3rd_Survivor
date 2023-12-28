@@ -785,10 +785,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.25097334
   m_Height: 1.8404446
   m_Direction: 1
-  m_Center: {x: 0, y: 0.9068544, z: 0}
+  m_Center: {x: 0.0029572248, y: 0.9068544, z: 0.014737427}
 --- !u!54 &309011430
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -840,8 +840,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3119eeaa033db6c45b2439e4d33dceeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walkSpeed: 50
-  _runSpeed: 100
+  _walkSpeed: 100
+  _runSpeed: 150
   _rotationSpeed: 5
 --- !u!95 &309011433
 Animator:
