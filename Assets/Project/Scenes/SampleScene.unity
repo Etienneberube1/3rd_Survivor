@@ -4038,6 +4038,7 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  _animIDSpeed: 0
 --- !u!143 &9056483512277127687
 CharacterController:
   m_ObjectHideFlags: 0
@@ -4105,7 +4106,6 @@ MonoBehaviour:
   _aimColliderLayerMask:
     serializedVersion: 2
     m_Bits: 1
-  _debugTransform: {fileID: 577547677}
 --- !u!1 &9090074195908191825
 GameObject:
   m_ObjectHideFlags: 0
