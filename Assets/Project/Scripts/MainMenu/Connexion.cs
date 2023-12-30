@@ -11,12 +11,11 @@ using System.IO;
 
 public class Connexion : MonoBehaviour
 {
-    [SerializeField]
-    private TMP_InputField nom;
-    [SerializeField]
-    private TMP_InputField mdp;
-    [SerializeField]
-    private TMP_Text erreurField;
+    [SerializeField] private TMP_InputField nom;
+    [SerializeField] private TMP_InputField mdp;
+    [SerializeField] private TMP_Text erreurField;
+
+
 
     [System.Serializable]
     public class SerializableUtilisateur
@@ -31,7 +30,7 @@ public class Connexion : MonoBehaviour
         string nomUtilisateur = nom.text;
         string motDePasse = mdp.text;
 
-        string cheminFichier = "Assets/TOm/Utilisateurs.json";
+        string cheminFichier = "Assets/project/Scripts/MainMenu/Utilisateurs.json";
         using (StreamReader reader = new StreamReader(cheminFichier))
         {
             string ligne;
